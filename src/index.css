@@ -91,10 +91,9 @@ body {
 .content {
   grid-area: content;
   background: #f6f7f9;
-
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
@@ -110,6 +109,12 @@ body {
   padding-bottom: 60px;
   padding-left: 25px;
   padding-right: 25px;
+
+  /* aca */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 button,
@@ -207,4 +212,55 @@ input[type="button"] {
 
 .no-encontrado {
   color: red;
+}
+
+.peli-item .description {
+  max-height: 2.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 250px;
+}
+
+.peli-item .description:hover {
+  max-height: none;
+}
+
+.title {
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+.edicion {
+  background: #f6f7f9;
+  border-left: 1px solid #ddd;
+  padding: 20px;
+}
+
+/* .edicion > div {
+  box-sizing: border-box;
+  width: 90%;
+  margin: 20px;
+  padding: 20px;
+  padding-top: 10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px #ddd;
+} */
+
+.edicion input[type="text"],
+.edicion input[type="text"],
+.edicion textarea {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 5px;
+  color: black;
+  background: white;
+  width: 80%;
+  opacity: 4;
+  outline: 0;
+  border-color: transparent;
 }

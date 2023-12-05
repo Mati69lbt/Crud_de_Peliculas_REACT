@@ -45,12 +45,14 @@ const Listado = ({ listadoState, setListadoState }) => {
             <article className="peli-item" key={peli.id}>
               <h3 className="title">{peli.titulo}</h3>
               <p className="description">{peli.descripcion}</p>
-              <button className="edit" onClick={() => setEditar(peli.id)}>
-                Editar
-              </button>
-              <button className="delete" onClick={() => borrarPeli(peli.id)}>
-                Eliminar
-              </button>
+              <div>
+                <button className="edit" onClick={() => setEditar(peli.id)}>
+                  Editar
+                </button>
+                <button className="delete" onClick={() => borrarPeli(peli.id)}>
+                  Eliminar
+                </button>
+              </div>
               {editar === peli.id && (
                 <Editar
                   peli={peli}
@@ -63,7 +65,9 @@ const Listado = ({ listadoState, setListadoState }) => {
           );
         })
       ) : (
-        <h2 style={estilos}>NO hay peliculas, no hay! </h2>
+        <h2 style={estilos}>
+          Agrega Peliculas, quedaran guardadas para que las veas pronto{" "}
+        </h2>
       )}
     </>
   );

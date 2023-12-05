@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import GuardarEnStorage from "../helpers/GuardarEnStorage";
 
 const Crear = ({ setListadoState }) => {
@@ -8,6 +8,12 @@ const Crear = ({ setListadoState }) => {
 
   //desestructura pelistate
   const { titulo, descripcion } = peliState;
+
+  const formRef = useRef();
+
+  const handleReset = () => {
+    formRef.current.reset();
+  };
 
   const conseguirDatosForm = (e) => {
     e.preventDefault();
@@ -23,25 +29,35 @@ const Crear = ({ setListadoState }) => {
     };
 
     // guardar en el estado
-    setPeliState(peli);
+    // setPeliState(peli);
+
+    //chatgpt
+    // actualizar el estado con los nuevos valores
+    setPeliState({
+      titulo: nuevoTitulo,
+      descripcion: nuevaDescripcion,
+    });
 
     // Actualizar estado
     setListadoState((peliculas) => {
-      return [...peliculas, peli];
+      return [peli, ...peliculas];
     });
     //Guardar en el LocalStorage
     GuardarEnStorage(peli);
+
+    // Limpiar el formulario después de guardar
+    handleReset();
   };
 
   return (
-    <div className="add">
+    <div className="lateral">
       <h3 className="title">
         <u>{tituloComponente}</u>
       </h3>
       <strong>
         {titulo && descripcion && `Has creado la pelicula: ${titulo}`}
       </strong>
-      <form onSubmit={conseguirDatosForm}>
+      <form onSubmit={conseguirDatosForm} ref={formRef}>
         <input type="text" id="titulo" name="titulo" placeholder="Titulo" />
         <textarea
           id="descripcion"

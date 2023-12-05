@@ -31,22 +31,13 @@ const Editar = ({ peli, conseguirPeliculas, setListadoState, setEditar }) => {
   };
 
   return (
-    <div className="lateral">
+    <div className="edicion">
       <h3 className="title">
         {titulo_componente}: {peli.titulo}
       </h3>
       <form onSubmit={(e) => guardarEdicion(e, peli.id)}>
-        <input
-          type="text"
-          name="titulo"
-          className="titulo_editado"
-          defaultValue={peli.titulo}
-        />
-        <textarea
-          name="descripcion"
-          defaultValue={peli.descripcion}
-          className="descripcion_editada"
-        ></textarea>
+        <input type="text" name="titulo" defaultValue={peli.titulo} />
+        <textarea name="descripcion" defaultValue={peli.descripcion}></textarea>
         <input type="submit" value="Actualizar" className="editar" />
       </form>
     </div>
